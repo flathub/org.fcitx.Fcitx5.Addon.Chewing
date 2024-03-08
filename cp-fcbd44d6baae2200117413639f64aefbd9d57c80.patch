@@ -1,0 +1,26 @@
+From fcbd44d6baae2200117413639f64aefbd9d57c80 Mon Sep 17 00:00:00 2001
+From: Weng Xuetian <wengxt@gmail.com>
+Date: Wed, 6 Mar 2024 23:30:03 -0800
+Subject: [PATCH] Add developer tag
+
+---
+ org.fcitx.Fcitx5.Addon.Chewing.metainfo.xml.in | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/org.fcitx.Fcitx5.Addon.Chewing.metainfo.xml.in b/org.fcitx.Fcitx5.Addon.Chewing.metainfo.xml.in
+index 8c9e874..882febc 100644
+--- a/org.fcitx.Fcitx5.Addon.Chewing.metainfo.xml.in
++++ b/org.fcitx.Fcitx5.Addon.Chewing.metainfo.xml.in
+@@ -6,8 +6,12 @@
+   <project_license>LGPL-2.1+</project_license>
+   <name>Chewing for Fcitx 5</name>
+   <summary>Chewing input method</summary>
++  <developer id="org.fcitx-im">
++      <name>The Fcitx Team</name>
++  </developer>
+   <url type="homepage">https://fcitx-im.org</url>
+   <url type="bugtracker">https://github.com/fcitx/fcitx5-chewing/issues</url>
++  <url type="vcs-browser">https://github.com/fcitx/fcitx5-chewing</url>
+   <project_group>Fcitx</project_group>
+   <releases>
+     <release version="5.1.1" date="2023-11-01"/>
