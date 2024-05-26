@@ -19,13 +19,13 @@ modules:
     sources:
       - type: git
         url: https://github.com/chewing/libchewing
-        tag: v0.7.0
+        tag: v0.8.3
         x-checker-data:
           type: anitya
           project-id: 1577
           stable-only: true
           tag-template: v${version}
-        commit: b543774334a4ceeaccddba39bd26afd63e86c937
+        commit: 02e9211fa08bc649b8ff54841c7e129e80b2d678
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
   - name: fcitx5-chewing
