@@ -4,7 +4,6 @@ runtime: org.fcitx.Fcitx5
 runtime-version: stable
 sdk: org.kde.Sdk//6.6
 build-extension: true
-appstream-compose: false
 separate-locales: false
 cleanup:
   - /include
@@ -36,6 +35,3 @@ modules:
         tag: 5.1.5
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
-    post-install:
-      - appstream-compose --basename=org.fcitx.Fcitx5.Addon.Chewing --prefix=${FLATPAK_DEST}
-        --origin=flatpak org.fcitx.Fcitx5.Addon.Chewing
