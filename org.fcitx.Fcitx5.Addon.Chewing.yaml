@@ -2,7 +2,7 @@ app-id: org.fcitx.Fcitx5.Addon.Chewing
 branch: stable
 runtime: org.fcitx.Fcitx5
 runtime-version: stable
-sdk: org.kde.Sdk//6.8
+sdk: org.kde.Sdk//6.9
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
 build-extension: true
@@ -41,6 +41,6 @@ modules:
     sources:
       - type: git
         url: https://github.com/fcitx/fcitx5-chewing
-        tag: 5.1.7
+        tag: 5.1.8
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
