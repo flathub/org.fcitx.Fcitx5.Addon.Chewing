@@ -1,8 +1,7 @@
 app-id: org.fcitx.Fcitx5.Addon.Chewing
-branch: stable
 runtime: org.fcitx.Fcitx5
 runtime-version: stable
-sdk: org.kde.Sdk//6.9
+sdk: org.kde.Sdk//6.10
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
 build-extension: true
@@ -15,6 +14,8 @@ build-options:
   prefix: /app/addons/Chewing
   prepend-pkg-config-path: /app/addons/Chewing/lib/pkgconfig
   append-path: /usr/lib/sdk/rust-stable/bin
+  no-debuginfo: true
+  strip: true
 modules:
   - modules/corrosion.yaml
   - name: libchewing
@@ -22,13 +23,13 @@ modules:
     sources:
       - type: git
         url: https://github.com/chewing/libchewing
-        tag: v0.9.1
+        tag: v0.10.3
         x-checker-data:
           type: anitya
           project-id: 1577
           stable-only: true
           tag-template: v${version}
-        commit: bab025039a24d610d5c327d6894356a3d645e441
+        commit: 93a9a24bae6173f23c620df314b55c596c7622dd
       - chewing-cargo-sources.json
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
@@ -41,6 +42,6 @@ modules:
     sources:
       - type: git
         url: https://github.com/fcitx/fcitx5-chewing
-        tag: 5.1.8
+        tag: 5.1.10
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
