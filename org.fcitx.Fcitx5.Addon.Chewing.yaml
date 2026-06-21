@@ -43,7 +43,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/fcitx/fcitx5-chewing
-        tag: 5.1.11
-        commit: 37068c3a2442d7f107e2836fe62270d718a0a3f5
+        tag: 5.1.12
+        commit: 8aa494168dcb54d318b48b213252207aeff9a21c
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
