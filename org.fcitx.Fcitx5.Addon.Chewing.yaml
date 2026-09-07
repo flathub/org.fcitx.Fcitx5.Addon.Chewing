@@ -1,7 +1,7 @@
 app-id: org.fcitx.Fcitx5.Addon.Chewing
 runtime: org.fcitx.Fcitx5
 runtime-version: stable
-sdk: org.kde.Sdk//6.10
+sdk: org.kde.Sdk//6.11
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
 build-extension: true
@@ -17,20 +17,38 @@ build-options:
   no-debuginfo: true
   strip: true
 modules:
-  - modules/corrosion.yaml
+  - name: corrosion
+    buildsystem: cmake-ninja
+    build-options:
+      env:
+        CARGO_HOME: /run/build/corrosion/cargo
+    cleanup:
+      - /app
+    config-opts:
+      - -DCORROSION_INSTALL_EXECUTABLE=OFF
+      - -DCORROSION_BUILD_TESTS=OFF
+      - -DCORROSION_DEV_MODE=OFF
+    sources:
+      - type: git
+        commit: 1499b14e4906a2890f5cee1547c8848db261753d
+        url: https://github.com/corrosion-rs/corrosion
+        tag: v0.6.1
+        x-checker-data:
+          type: git
+          tag-pattern: ^v([\d.]+)$
   - name: libchewing
     buildsystem: cmake-ninja
     builddir: true
     sources:
       - type: git
-        url: https://github.com/chewing/libchewing
-        tag: v0.12.0
+        url: https://codeberg.org/chewing/libchewing.git
+        tag: v0.13.1
         x-checker-data:
           type: anitya
           project-id: 1577
           stable-only: true
           tag-template: v${version}
-        commit: 05ae6bcb9309c466a1b32d69c146bc583be04747
+        commit: f071d2e95c531cc39bb4325cd5a5d0e1d51daef8
       - chewing-cargo-sources.json
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
@@ -43,7 +61,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/fcitx/fcitx5-chewing
-        tag: 5.1.12
-        commit: 8aa494168dcb54d318b48b213252207aeff9a21c
+        tag: 5.1.13
+        commit: 728e3f036447c52eaa6d819cefda814b275f949c
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
